@@ -2,45 +2,57 @@
 
 {% block content %}
 
-<table class="table">
-    <thead>
-    <tr>
-        <th>Employees</th>
-    </tr>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Department</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for employee in employees %}
-    <tr>
-        <td>{{ employee.name }}</td>
-        <td>{{ employee.email }}</td>
-        <td>{{ employee.department }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Departments</th>
-    </tr>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for department in departments %}
-    <tr>
-        <td>{{ department.name }}</td>
-        <td>{{ department.description}}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="container">
+    <div class="card">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th colspan="3">Employees</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.department }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    <br><br>
+
+    <div class="card">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th colspan="2">Departments</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for department in departments %}
+            <tr>
+                <td>{{ department.name }}</td>
+                <td>{{ department.description}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
 
 {% endblock %}
