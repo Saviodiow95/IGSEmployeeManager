@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from rest_framework import generics
+from rest_framework.pagination import LimitOffsetPagination
 
 from core.models import Department, Employee
 from core.serializers import DepartmentSerializer, EmployeeRegistrationSerializer, EmployeeReadOnlySerializer
@@ -17,6 +18,7 @@ class HomeView(TemplateView):
 class DepartmentList(generics.ListCreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+    pagination_class = LimitOffsetPagination
 
 
 class DepartmentDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -26,6 +28,7 @@ class DepartmentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class EmployeeList(generics.ListCreateAPIView):
     queryset = Employee.objects.all()
+    pagination_class = LimitOffsetPagination
 
     def get_serializer_class(self):
         if self.request.method.upper() == "GET":
